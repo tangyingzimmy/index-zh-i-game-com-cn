@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>球友直播 · 从球场到屏幕，真实不过一场直播</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f7f5f2;
+            color: #1e1e1e;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- Hero --- */
+        .hero {
+            background: linear-gradient(135deg, #101820 0%, #1c2a3a 100%);
+            padding: 80px 0 70px;
+            color: #ededed;
+        }
+
+        .hero .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #fcb045;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 620px;
+            opacity: 0.85;
+            margin-bottom: 32px;
+        }
+
+        .hero .subnote {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 40px;
+            padding: 12px 28px;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            display: inline-block;
+        }
+
+        .hero .subnote a {
+            color: #fcb045;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .hero .subnote a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- 优势区（卡片）--- */
+        .strengths {
+            padding: 70px 0 50px;
+            background: #ffffff;
+        }
+
+        .strengths h2 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 40px;
+            letter-spacing: -0.01em;
+            color: #222;
+        }
+
+        .strengths h2 small {
+            font-weight: 400;
+            color: #6b7280;
+            font-size: 1rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 32px;
+        }
+
+        .card {
+            background: #f9f8f6;
+            padding: 32px 24px 28px;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            transition: transform 0.15s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: #111;
+        }
+
+        .card p {
+            font-size: 0.98rem;
+            color: #3d3d3d;
+        }
+
+        .card .icon {
+            font-size: 1.8rem;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        /* --- 说明区（场景 + 提示）--- */
+        .explain {
+            padding: 60px 0 70px;
+            background: #f7f5f2;
+        }
+
+        .explain-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .explain-block h3 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 16px;
+            border-left: 5px solid #fcb045;
+            padding-left: 18px;
+        }
+
+        .explain-block p {
+            margin-bottom: 16px;
+            color: #2e2e2e;
+        }
+
+        .explain-block .tag {
+            background: #eae7e2;
+            border-radius: 30px;
+            padding: 6px 18px;
+            display: inline-block;
+            font-size: 0.85rem;
+            margin: 4px 6px 4px 0;
+            color: #1c2a3a;
+        }
+
+        .explain-block a {
+            color: #b45f2a;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+        }
+
+        .explain-block a:hover {
+            color: #823e1a;
+        }
+
+        /* --- FAQ 摘要 --- */
+        .faq-summary {
+            background: #ffffff;
+            padding: 60px 0 50px;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 36px;
+            color: #1a1a1a;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e2dfda;
+            padding: 22px 0;
+        }
+
+        .faq-item:first-of-type {
+            border-top: 1px solid #e2dfda;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #222;
+        }
+
+        .faq-q span {
+            color: #fcb045;
+            font-size: 1.2rem;
+            margin-right: 12px;
+        }
+
+        .faq-a {
+            margin-top: 10px;
+            color: #4a4a4a;
+            padding-left: 32px;
+        }
+
+        .faq-a a {
+            color: #b45f2a;
+            text-decoration: underline;
+        }
+
+        /* --- 底部 --- */
+        .footer {
+            background: #1c2a3a;
+            padding: 48px 0 40px;
+            color: #b6c4d3;
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .footer a {
+            color: #fcb045;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer .small-note {
+            font-size: 0.82rem;
+            opacity: 0.6;
+            margin-top: 20px;
+        }
+
+        /* --- 响应式 --- */
+        @media (max-width: 760px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .explain-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .card-grid {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 0 50px;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero 区 -->
+    <section class="hero">
+        <div class="container">
+            <h1>看真实球局，上 <span>球友直播</span></h1>
+            <p>不用下载，不用注册，打开页面就能看一场正在进行的野球、约战或业余联赛—— 从球场到屏幕，真实不过一场直播。</p>
+            <div class="subnote">
+                🏀 如果你还没试过，现在就可以去 <a href="https://cn-official-qiuyou.com">球友直播</a> 看看今天有什么比赛
+            </div>
+        </div>
+    </section>
+
+    <!-- 优势区（卡片） -->
+    <section class="strengths">
+        <div class="container">
+            <h2>为什么越来越多球友在看 <small>· 三个理由</small></h2>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="icon">📡</div>
+                    <h3>零门槛观看</h3>
+                    <p>无需下载客户端，不要求注册账号。点开直播页，比赛立刻开始。对电脑或手机配置没有要求，老设备也能流畅播放。</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🎯</div>
+                    <h3>真实球场氛围</h3>
+                    <p>没有解说滤镜、没有二次包装，画面就是真实球场的声音和节奏。你能听见球鞋摩擦、篮网抖动、场边队友的呼喊。</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🗺️</div>
+                    <h3>覆盖多种球局</h3>
+                    <p>从街头半场斗牛到正规全场对抗，从下班后的养生球到周末交流赛。<a href="https://cn-official-qiuyou.com" style="color:#b45f2a; text-decoration:underline;">球友直播</a> 聚合正在发生的真实球局。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 说明区：谁在看 + 怎么用（场景与提示） -->
+    <section class="explain">
+        <div class="container">
+            <div class="explain-grid">
+                <div class="explain-block">
+                    <h3>🏃 适合这样的你</h3>
+                    <p>下班回家不想立刻躺平，想看看别人打球找找感觉；周末约了球但还有一小时开赛，先看看其他场热热身；或者你只是好奇今天小区篮球场有没有人在打—— 这些人都在用 <a href="https://cn-official-qiuyou.com">球友直播</a> 快速获取画面。</p>
+                    <p>不需要成为高手，不需要预注册，你的身份只是一个看球的人。</p>
+                    <div>
+                        <span class="tag">🎯 野球局</span>
+                        <span class="tag">⛹️ 约战直播</span>
+                        <span class="tag">🏀 训练赛</span>
+                        <span class="tag">🔄 路人王</span>
+                    </div>
+                </div>
+                <div class="explain-block">
+                    <h3>💡 使用提示</h3>
+                    <p>页面加载后如果暂时没有画面，可能是当前时段直播较少——国内业余直播场次多集中在傍晚和周末。你可以稍后再来，或者刷新页面获取最新直播流。</p>
+                    <p>建议使用 Wi-Fi 或稳定的 4G/5G 网络，避免因上行带宽不足导致卡顿。部分浏览器可能需要允许自动播放。</p>
+                    <p style="margin-top: 12px;">📌 第一次使用？直接访问 <a href="https://cn-official-qiuyou.com">球友直播</a> 主页即可看到当前直播列表。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ 摘要 -->
+    <section class="faq-summary">
+        <div class="container">
+            <h2>常见疑问 · 快速了解</h2>
+            <div class="faq-item">
+                <div class="faq-q"><span>Q</span> 球友直播需要付费吗？</div>
+                <div class="faq-a">完全免费。当前阶段所有公开直播场次都可以直接观看，不设付费墙或会员制度。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q"><span>Q</span> 我能在手机上看吗？</div>
+                <div class="faq-a">可以。移动端浏览器直接打开 <a href="https://cn-official-qiuyou.com">球友直播</a> 即可，页面适配手机屏幕，竖屏横屏都能正常播放。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q"><span>Q</span> 我能自己开直播吗？</div>
+                <div class="faq-a">如果你有直播推流条件，可以关注站内公告或联系运营方了解主播入驻方式。普通用户目前以观看为主。</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <div class="container">
+            <p>🏀 真实球场 · 真实直播 — <a href="https://cn-official-qiuyou.com">球友直播</a></p>
+            <p class="small-note">本站仅为独立介绍页，内容仅供参考。直播画面及内容由用户自行提供。</p>
+        </div>
+    </footer>
+
+</body>
+</html>
