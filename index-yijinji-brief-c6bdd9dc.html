@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一竞技 · 稳定入口与平台导读</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #faf7f2;
+            font-family: 'Georgia', 'Noto Serif SC', 'Times New Roman', serif;
+            color: #2e2b27;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fffcf7;
+            border-radius: 28px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+            padding: 2.5rem 2rem;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            border-left: 6px solid #b7a48b;
+            padding-left: 1.2rem;
+            margin-bottom: 1.2rem;
+            color: #3b3530;
+            line-height: 1.2;
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            color: #6b6057;
+            margin-bottom: 2rem;
+            font-style: italic;
+            padding: 0.2rem 0 0.2rem 1.8rem;
+            border-bottom: 1px dashed #ddd3c7;
+            padding-bottom: 0.8rem;
+        }
+
+        .intro-block {
+            margin: 2rem 0 2.8rem 0;
+            background: #f6f0e9;
+            padding: 1.6rem 2rem;
+            border-radius: 18px;
+            border-left: 6px solid #c2aa91;
+        }
+
+        .intro-block p {
+            font-size: 1.05rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .intro-block strong {
+            color: #4b3f36;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.8rem;
+            margin: 2.4rem 0 2rem 0;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.5rem 1.3rem 1.8rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+            border: 1px solid #ede7df;
+            transition: background 0.2s;
+        }
+
+        .card:hover {
+            background: #f9f4ee;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            color: #4f4239;
+            border-bottom: 2px solid #e2d5c9;
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .card p {
+            font-size: 0.96rem;
+            color: #4d443d;
+            margin-bottom: 0.3rem;
+        }
+
+        .card .tag {
+            display: inline-block;
+            margin-top: 0.8rem;
+            font-size: 0.8rem;
+            background: #e8dfd5;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            color: #4d3e33;
+            letter-spacing: 0.02em;
+        }
+
+        .audience-box {
+            background: #efe8df;
+            border-radius: 24px;
+            padding: 1.8rem 2rem;
+            margin: 2.2rem 0 2rem 0;
+        }
+
+        .audience-box h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 0.8rem;
+            color: #3f372f;
+        }
+
+        .audience-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 2rem;
+            margin-top: 0.6rem;
+        }
+
+        .audience-item {
+            background: #ffffffc4;
+            backdrop-filter: blur(2px);
+            padding: 0.4rem 1.2rem 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            border: 1px solid #d5c9bd;
+            color: #3b332d;
+        }
+
+        .quote-note {
+            background: #f1ebe3;
+            padding: 1.2rem 1.8rem;
+            border-radius: 20px;
+            margin: 2rem 0 1.6rem 0;
+            border: 1px solid #dacfc3;
+            font-style: normal;
+            position: relative;
+        }
+
+        .quote-note::before {
+            content: "❝";
+            font-size: 2.5rem;
+            color: #b09b86;
+            position: absolute;
+            left: 0.6rem;
+            top: -0.2rem;
+            opacity: 0.25;
+            font-family: serif;
+        }
+
+        .quote-note p {
+            margin-left: 1.8rem;
+            font-size: 1rem;
+        }
+
+        .faq-mini {
+            margin: 2.8rem 0 1.5rem 0;
+        }
+
+        .faq-mini details {
+            border-bottom: 1px solid #e0d7cd;
+            padding: 0.8rem 0;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #3e362f;
+            font-size: 1.03rem;
+            padding: 0.3rem 0;
+        }
+
+        .faq-mini details p {
+            margin: 0.5rem 0.2rem 0.8rem 1.2rem;
+            color: #554b42;
+            font-size: 0.95rem;
+        }
+
+        .link-paragraph {
+            margin: 2rem 0 1rem 0;
+            padding: 1.2rem 1.8rem;
+            background: #f3ede6;
+            border-radius: 30px;
+            font-size: 1.02rem;
+        }
+
+        .link-paragraph a {
+            color: #6f553c;
+            text-decoration: underline wavy #d5bea9 1px;
+            text-underline-offset: 4px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .link-paragraph a:hover {
+            color: #523b2a;
+            text-decoration: underline wavy #b3967a 2px;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            font-size: 0.85rem;
+            color: #84786e;
+            text-align: center;
+            border-top: 1px solid #e5dbd0;
+            padding-top: 1.5rem;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            h1 {
+                font-size: 1.9rem;
+                padding-left: 0.8rem;
+            }
+            .intro-block {
+                padding: 1.2rem 1.2rem;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .audience-flex {
+                gap: 0.6rem;
+            }
+            .audience-item {
+                font-size: 0.85rem;
+                padding: 0.3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>一竞技 · 稳定的入口与信息基底</h1>
+    <div class="hero-sub">一个偏向知识叙述的篇章，关于入口、结构和使用者</div>
+
+    <div class="intro-block">
+        <p>在信息过载的时代，选择一个结构清晰、访问稳定的站点愈发重要。<strong>一竞技</strong> 所构建的页面体系，并不追求花哨的交互，而是将“如何高效找到内容”作为底层逻辑。从导航层级到内容分区，都保持着一种内敛的秩序感。</p>
+        <p>这份介绍并非面面俱到的产品手册，而是一份从“稳定入口”与“页面说明”视角展开的观察笔记。你可以将它看作一张折叠好的地图——展开后，路径自然呈现。</p>
+    </div>
+
+    <div class="card-grid">
+        <div class="card">
+            <h3>📋 用途卡片 · 信息聚合</h3>
+            <p>页面采用卡片式布局承载不同模块：功能介绍、场景提示、人群说明。每一张卡片都像独立的知识便签，但彼此之间通过视觉节奏与留白形成连贯的阅读流。</p>
+            <span class="tag">阅读优先</span>
+        </div>
+        <div class="card">
+            <h3>🧭 稳定的入口逻辑</h3>
+            <p>不依赖弹窗或重定向，所有主干链接均保持静态可访问。入口即入口，不附加干扰性引导。页面结构经过语义化梳理，对屏幕阅读器与键盘导航同样友好。</p>
+            <span class="tag">可访问性</span>
+        </div>
+        <div class="card">
+            <h3>📎 内容承接与引用</h3>
+            <p>段落之间用短句与引用块过渡，模拟书面文章的节奏。提示框与 FAQ 摘要均以“辅助理解”为出发点，不制造冗余信息。适合需要安静浏览的使用者。</p>
+            <span class="tag">低干扰</span>
+        </div>
+    </div>
+
+    <div class="audience-box">
+        <h2>适合人群 · 并非窄众</h2>
+        <div class="audience-flex">
+            <span class="audience-item">📖 日常信息浏览者</span>
+            <span class="audience-item">🧩 结构控与文档爱好者</span>
+            <span class="audience-item">⚙️ 注重稳定访问的用户</span>
+            <span class="audience-item">🎯 希望快速定位内容的人</span>
+            <span class="audience-item">🕊️ 偏好安静界面的阅读者</span>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.95rem; color: #4f443a;">以上人群有一个共性：他们更看重“到达信息”的效率，而非被视觉元素牵引。一竞技的页面设计恰好回应了这种需求。</p>
+    </div>
+
+    <div class="quote-note">
+        <p>“一个好的入口，应当让人忘记入口本身，只记得自己要找的东西。” —— 这或许正是 <strong>一竞技</strong> 在页面结构中所保持的克制哲学。</p>
+    </div>
+
+    <div class="faq-mini">
+        <details>
+            <summary>FAQ 摘要 · 页面常见疑问</summary>
+            <p><strong>问：</strong> 这个介绍页是官方文档吗？<br>
+            <strong>答：</strong> 不是。它是基于公开页面结构与风格所做的独立叙述，目的是展示信息组织方式，仅为兴趣向说明。</p>
+            <p><strong>问：</strong> 我能从这里直接跳转到一竞技所有内容吗？<br>
+            <strong>答：</strong> 本页提供的是概念性导读与一个稳定链接。具体的功能页面可通过 <a href="https://index-yijinji.com" style="text-decoration: underline; color: #6f553c;">一竞技</a> 的导航体系进一步探索。</p>
+            <p><strong>问：</strong> 为什么强调“稳定入口”？<br>
+            <strong>答：</strong> 因为部分站点会因动态脚本或频繁改版导致链接失效。一竞技在入口层面保持简洁的静态结构，降低访问的不确定性。</p>
+        </details>
+    </div>
+
+    <div class="link-paragraph">
+        <p>📎 如果你希望直接抵达这个生态的起始点，可以通过 <a href="https://index-yijinji.com">一竞技</a> 的主页了解整体脉络。页面本身不设门槛，所有内容都平铺在清晰的层级中——这也是本文试图传递的“稳定入口”的含义。</p>
+    </div>
+
+    <div class="footer-note">
+        <p>基于公开信息整理 · 仅作知识型页面说明 · 版面风格偏向文章式卡片</p>
+    </div>
+</div>
+</body>
+</html>
